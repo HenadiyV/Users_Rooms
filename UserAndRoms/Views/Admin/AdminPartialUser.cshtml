@@ -1,0 +1,116 @@
+﻿<style>
+    .error {
+        color: red;
+    }
+
+    input:invalid {
+        border: 2px solid red;
+    }
+</style>
+<div class="container">
+
+    <a href="~/Admin/Index" class="btn btn-primary ">&laquo;Вернуться </a>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();">Добавить пользователя</button>
+    <h2>Список пользователей</h2>
+    <br />
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th hidden="hidden">
+                    Id
+                </th>
+                <th>
+                    Имя
+                </th>
+                <th>
+                    Фамилия
+                </th>
+                <th>
+                    Email
+                </th>
+                <th>
+                    Пароль
+                </th>
+                <th>
+                    Доступ
+                </th>
+                <th>
+                    Действие
+                </th>
+            </tr>
+        </thead>
+        <tbody class="tbody"></tbody>
+    </table>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                @*<button type="button" class="close" data-dissmiss="modal"><span aria-hidden="true">&times;</span></button>*@
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Добавить пользователя</h4>
+            </div>
+            <div class="modal-body">
+                <form id="loginform">
+                    <div class="form-group " style="display:none;">
+                        <label for="Id">ID</label>
+                        <input type="text" class="form-control" id="IdUser" placeholder="Id" disabled="disabled" />
+                    </div>
+                    <div class="form-group">
+                        <label for="FirstName">Имя </label>
+                        <input type="text" class="form-control" id="FirstName" placeholder="Имя" />
+                    </div>
+                    <div class="form-group">
+                        <label for="LastName">Фамилия </label>
+                        <input type="text" class="form-control" id="LastName" placeholder="Фамилия" />@**@
+                    </div>
+                    <div class="form-group">
+                        <label for="Email">Email</label>
+                        <input type="email" class="form-control" id="Email" placeholder="Email" />@**@
+                    </div>
+                    <div class="form-group">
+                        <select id="RoleId" required>
+                            <option selected value="">Установить права доступа</option>
+                            <option selected value="1">Администратор</option>
+                            <option selected value="2">Модератор</option>
+                            <option selected value="3">Пользователь</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="Password">Пароль</label>
+                        <input type="password" class="form-control" name="Password" id="Password" placeholder="Пароль" />@**@
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-primary" id="btnAdd" onclick="return AddUser();">Add</button>
+                <button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="UpdateUser();">Update</button> @* *@
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<script src="~/Scripts/CRUD_User.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#FirstName').keypress(function (key) {
+
+            if ((key.charCode < 97 || key.charCode > 122) && (key.charCode < 65 || key.charCode > 90) && (key.charCode != 45)&&(key.charCode != 32)&& (key.charCode < 1072 || key.charCode > 1103) && (key.charCode < 1040 || key.charCode > 1071) && (key.charCode != 1025 || key.charCode != 1105)) return false;
+
+        });
+    });
+    $(document).ready(function () {
+        $('#LastName').keypress(function (key) {
+
+            if ((key.charCode < 97 || key.charCode > 122) && (key.charCode < 65 || key.charCode > 90) && (key.charCode != 45) && (key.charCode < 1072 || key.charCode > 1103) && (key.charCode < 1040 || key.charCode > 1071) && (key.charCode != 1025 || key.charCode != 1105)) return false;
+
+        });
+    });
+</script>

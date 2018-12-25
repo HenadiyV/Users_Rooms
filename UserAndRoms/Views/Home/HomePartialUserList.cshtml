@@ -1,0 +1,67 @@
+﻿<h2>Список пользователей</h2>
+<a href="~/Home/Index" class="btn btn-primary ">&laquo;На главную </a>
+<div class="container">
+    <table class="table table-bordered table-hover">
+
+        <thead>
+            <tr>
+                <th hidden="hidden">
+                    Id
+                </th>
+                <th>
+                    Фамилия
+                </th>
+                <th>
+                    Email
+                </th>
+                <th>
+                    Действие
+                </th>
+            </tr>
+        </thead>
+        <tbody class="tbodyUser"></tbody>
+    </table>
+</div>
+<div class="modal fade" id="myModalRoom" tabindex="-1" role="dialog" aria-labelledby="myModalLabelRoom" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" id="myModalLabelRoom">Добавить комнату</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <h2>Список комнат</h2>
+                    <div>
+                        <table class="table table-bordered table-hover">
+
+                            <thead>
+                                <tr>
+                                    <th hidden="hidden">
+                                        Id
+                                    </th>
+                                    <th>
+                                        Название
+                                    </th>
+                                    <th>
+                                        Действие
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="tbodyRoom"></tbody>
+                        </table>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<script src="~/Scripts/UserList.js"></script>
+

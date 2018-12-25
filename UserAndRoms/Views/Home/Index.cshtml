@@ -1,0 +1,52 @@
+﻿@{
+    //Home
+    ViewBag.Title = "Home_Index";
+}
+<style>
+    img {
+        width: 100%;
+    }
+</style>
+<section>
+    <div class="row">
+        <div class="col-md-3">
+            <img src="~/Image/Administration1.png"  />
+            <p><a href="~/Admin/Index" class="btn btn-primary btn-lg">Управление &raquo;</a></p>
+        </div>
+        <div class="col-md-3">
+            <img src="~/Image/Room.jpg" style="width:110%;" />
+            <p><a href="~/Home/HomePartialRoomList" class="btn btn-primary btn-lg">Комнаты&raquo;</a></p>
+        </div>
+        <div class="col-md-3">
+            <img src="~/Image/RoomUser.jpg" />
+            <p><a href="~/Home/HomePartialUserList" class="btn btn-primary btn-lg">Пользователи &raquo;</a></p>
+            <br />
+        </div>
+    </div>
+    <h3>Список комнат в которых находяться пользователи</h3>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Название комнаты </th>
+                <th>Пользователь</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        @foreach (var urm in ViewBag.UserRoom)
+        {
+            <tr>
+                <td>
+                    <p>@urm.RoomName</p>
+                </td>
+                <td>
+                    <p>@urm.UserName</p>
+
+                </td>
+                <td>
+                    <p>@urm.UserEmail</p>
+
+                </td>
+            </tr>
+        }
+    </table>
+</section>
