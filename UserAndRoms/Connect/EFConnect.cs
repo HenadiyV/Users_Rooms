@@ -21,41 +21,13 @@ namespace UserAndRoms.Connect
             User us = new User{ FirstName = "Admin", LastName = "Admin", Email = "test@test.com", Password = "admin", RoleId=1 };
                 context.Users.Add(us);
                context.SaveChanges();
-            try {
-                
-            } catch (Exception e)
-            {
-                string s = e.Message;
-            }
-           
             Room room = new Room { Name = "public_room", RoomTypeAsString="Large",    SizeRoom = 25 };
             context.Rooms.Add(room);
             context.SaveChanges();
-            try {
-                }
-           catch(Exception e)
-            {
-                string s = e.Message;
-            }
-           
-            try
-            {
                 UsersRooms usersRooms = new UsersRooms { Users_Id = us.Id, Rooms_Id = room.Id};
                 context.UsersRoom.Add(usersRooms);
         context.SaveChanges();
-            } catch(Exception e)
-            {
-                string s = e.Message;
-            }
           
-            try {
-                
-            }
-            catch (Exception e)
-            {
-                string s = e.Message;
-            }
-            
         }
     }
 
